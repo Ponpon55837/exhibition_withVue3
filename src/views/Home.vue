@@ -42,8 +42,10 @@ export default {
     })
 
     const matchContent = computed(() => {
-      return exhiData.value.sort((x, y) => x.showInfo[0].time < y.showInfo[0].time).filter(item => item.title.includes(search.value)).splice(0, addArr.value)
+      return exhiData.value.sort((x, y) => x.endDate > y.endDate).filter(item => item.title.includes(search.value) || item.masterUnit.includes(search.value)).splice(0, addArr.value)
     })
+
+    console.log(matchContent)
 
     return { exhiData, search, matchContent, addArr, setAddArr }
   }
