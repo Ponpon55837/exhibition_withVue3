@@ -19,8 +19,8 @@
       }" :title="exhi.title">
         <h2 class="font-bold text-lg md:text-md mb-3">{{ exhi.title }}</h2>
         <p class="text-sm">{{ snippet }}</p><br />
-        <label class="rounded-full p-2 mr-2" :class="darkMode ? 'bg-gray-500': 'bg-blue-300' ">{{ exhi.showInfo[0].onSales === 'Y' ? "售票中" : "暫未售票" }}</label>
-        <label class="rounded-full p-2 mr-2" :class="darkMode ? 'bg-gray-500': 'bg-blue-300' ">{{ exhi.masterUnit[0] ? exhi.masterUnit[0] : '未記錄' }}</label>
+        <label class="rounded-full p-2 mr-2" :class="darkMode ? 'bg-gray-500 text-purple-300': 'bg-blue-300' ">{{ exhi.showInfo[0].onSales === 'Y' ? "售票中" : "暫未售票" }}</label>
+        <label class="rounded-full p-2 mr-2" :class="darkMode ? 'bg-gray-500 text-indigo-300': 'bg-blue-300' ">{{ exhi.masterUnit[0] ? exhi.masterUnit[0] : '未記錄' }}</label>
       </router-link>
     </div>
     <div class="w-100 md:w-auto group p-5 justify-start" :class="darkMode ? 'bg-blue-400': 'bg-blue-200'">
