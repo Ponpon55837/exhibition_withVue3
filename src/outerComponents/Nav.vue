@@ -7,7 +7,7 @@
     </div>
     <div class="md:text-right sm:text-left">
       <button v-if="showIndex" @click="setShowIndex(false)" class="rounded-md p-1 ml-3 mt-5 mb-1 mr-1 w-20 border font-medium" type="button" :class="darkMode ? 'bg-gray-900 border-gray-500 text-gray-300': 'bg-gray-100 border-blue-900'"><router-link :to="{ name: 'Home', params: {} }" title="回首頁">首頁</router-link></button>
-      <button class="rounded-md p-1 mt-5 mb-1 mr-5 w-20 border font-medium" type="button" :class="darkMode ? 'bg-gray-900 border-gray-500 text-gray-300': 'bg-gray-100 border-blue-900'" @click="setDarkMode(!darkMode)">{{ !darkMode ? 'Light' : 'Dark' }}</button>
+      <button class="rounded-md p-1 ml-2 mt-5 mb-1 mr-5 w-20 border font-medium" type="button" :class="darkMode ? 'bg-gray-900 border-gray-500 text-gray-300': 'bg-gray-100 border-blue-900'" @click="setDarkMode(!darkMode)">{{ !darkMode ? 'Light' : 'Dark' }}</button>
     </div>
   </div>
   <div class="cursor-pointer fixed right-5 bottom-5 p-2 rounded-full font-bold opacity-50 hover:opacity-100" :class="darkMode ? 'bg-blue-300': 'bg-gray-300'" @click="jumpTop">
