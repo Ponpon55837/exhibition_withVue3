@@ -1,9 +1,9 @@
 <template>
-  <div class="box-border" :class="darkMode ? 'bg-gray-800' : 'bg-gray-100' ">
+  <div class="box-border" :class="darkMode ? 'bg-gray-800' : 'bg-yellow-100' ">
     <Nav :darkMode='darkMode' :setDarkMode='setDarkMode' :showIndex="showIndex" :setShowIndex='setShowIndex' />
     <!-- 這裡的router-view會抓取Nav當中router-link的連結做為內容輸出 -->
     <router-view :darkMode='darkMode' :setShowIndex='setShowIndex' />
-    <Footer />
+    <Footer :darkMode='darkMode' />
   </div>
   <div class="backCircle"></div>
 </template>
