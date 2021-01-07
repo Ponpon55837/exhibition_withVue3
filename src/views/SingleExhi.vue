@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow-md hover:shadow-lg m-5 md:m-3 sm:m-0">
+  <div class="shadow-md hover:shadow-lg m-5 md:m-3 sm:m-0" @click="setShowIndex(true)">
     <div class='w-100 lg:w-100 md:w-full sm:w-full xs:w-full group p-5 justify-start' :class="darkMode ? 'bg-gray-400': 'bg-gray-200'">
       <router-link :to="{
         name: 'RouterPage',
@@ -36,7 +36,7 @@ import RouterPage from './RouterPage.vue'
 
 export default {
   name: 'SingleExhi',
-  props: ['exhi', 'darkMode'],
+  props: ['exhi', 'darkMode', 'setShowIndex'],
   components: { RouterPage },
   setup(props) {
     const temp = props.exhi.showInfo[0]
