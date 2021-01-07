@@ -1,6 +1,6 @@
 <template>
   <div class="shadow-md hover:shadow-lg m-5 md:m-3 sm:m-0" @click="setShowIndex(true)">
-    <div class='w-100 lg:w-100 md:w-full sm:w-full xs:w-full group p-5 justify-start' :class="darkMode ? 'bg-gray-400': 'bg-yellow-200'">
+    <div class='w-100 lg:w-100 md:w-full sm:w-full xs:w-full group p-5 justify-start' :class="darkMode ? 'bg-gray-400': 'bg-yellow-100'">
       <router-link :to="{
         name: 'RouterPage',
         params: {
@@ -24,7 +24,7 @@
       <label class="rounded-md p-2 mr-2" :class="darkMode ? 'bg-gray-500 text-purple-300': 'bg-yellow-300' ">#{{ exhi.showInfo[0].onSales === 'Y' ? "售票中" : "暫未售票" }}</label>
       <label class="rounded-md p-2 mr-2" :class="darkMode ? 'bg-gray-500 text-indigo-300': 'bg-yellow-300' ">#{{ exhi.masterUnit[0] ? exhi.masterUnit[0] : '未記錄' }}</label>
     </div>
-    <div class="w-100 md:w-auto group p-5 justify-start" :class="darkMode ? 'bg-blue-400': 'bg-yellow-300'">
+    <div class="w-100 md:w-auto group p-5 justify-start" :class="darkMode ? 'bg-blue-400': 'bg-yellow-200'">
       開始時間：{{ exhi.showInfo[0].time }} <br />
       結束時間：{{ exhi.endDate }}
     </div>
