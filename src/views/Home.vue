@@ -11,7 +11,7 @@
       </div>
     </div>
     <div v-if="matchContent.length" class="text-center">
-      <button class="rounded-full px-10 py-3 m-5" :class="darkMode ? 'bg-gray-300' : 'bg-blue-500' " @click="setAddArr(addArr+5)">more information</button>
+      <button class="rounded-full px-10 py-3 m-5 font-bold" :class="darkMode ? 'bg-gray-300' : 'bg-blue-500' " @click="setAddArr(addArr+5)">more</button>
     </div>
     <div v-if="!matchContent.length && search === ''" class="text-center">
       Loading...
