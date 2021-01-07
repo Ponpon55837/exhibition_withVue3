@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow-md hover:shadow-lg m-5 md:m-3 sm:m-0" @click="setShowIndex(true)">
+  <div class="shadow-md hover:shadow-lg m-5 md:m-3 sm:m-0 transition duration-700 ease-in-out transform scale-95 hover:scale-100" @click="setShowIndex(true)">
     <div class='w-100 lg:w-100 md:w-full sm:w-full xs:w-full group p-5 justify-start' :class="darkMode ? 'bg-gray-400': 'bg-yellow-100'">
       <router-link :to="{
         name: 'RouterPage',
