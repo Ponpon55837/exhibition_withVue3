@@ -5,6 +5,7 @@
     <router-view :darkMode='darkMode' />
     <Footer />
   </div>
+  <div class="backCircle"></div>
 </template>
 
 <script>
