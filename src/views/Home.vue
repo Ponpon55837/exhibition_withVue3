@@ -25,7 +25,7 @@
 <script>
 import { ref, watchEffect, computed } from 'vue'
 import { useState } from '../composables/state.js'
-import getExhiData from '../composables/getExhiData.js'
+import getData from '../composables/getData.js'
 import SingleExhi from './SingleExhi.vue'
 
 export default {
@@ -33,19 +33,20 @@ export default {
   props: ['darkMode', 'setShowIndex'],
   components: { SingleExhi },
   setup() {
-    const { exhiData, error, jsonHandler } = getExhiData()
+    const initialUrl = `https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=6`
+    const { originData, error, jsonHandler } = getData()
     const search = ref('')
     const [addArr, setAddArr] = useState(10)
 
     watchEffect(() => {
-      jsonHandler()
+      jsonHandler(initialUrl)
     })
 
     const matchContent = computed(() => {
-      return exhiData.value.sort((x, y) => x.endDate > y.endDate).filter(item => item.title.includes(search.value) || item.masterUnit.includes(search.value) || item.showUnit.includes(search.value)).splice(0, addArr.value)
+      return originData.value.sort((x, y) => x.endDate > y.endDate).filter(item => item.title.includes(search.value) || item.masterUnit.includes(search.value) || item.showUnit.includes(search.value)).splice(0, addArr.value)
     })
 
-    return { exhiData, search, matchContent, addArr, setAddArr }
+    return { search, matchContent, addArr, setAddArr }
   }
 }
 </script>
