@@ -45,8 +45,6 @@ export default {
       return exhiData.value.sort((x, y) => x.endDate > y.endDate).filter(item => item.title.includes(search.value) || item.masterUnit.includes(search.value) || item.showUnit.includes(search.value)).splice(0, addArr.value)
     })
 
-    console.log(matchContent)
-
     return { exhiData, search, matchContent, addArr, setAddArr }
   }
 }
