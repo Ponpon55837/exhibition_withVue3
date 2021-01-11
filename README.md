@@ -1,3 +1,5 @@
-用文化部展覽資訊api做的網頁
+Use Vue3 + Vite + tailwindcss
+
+API source: 文化部開放資料平台
 
 demo url : https://exhibition-with-vue3.vercel.app
