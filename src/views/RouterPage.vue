@@ -15,6 +15,6 @@
 <script>
 export default {
   name: 'RouterPage',
-  props: ['darkMode', 'id', 'title', 'des', 'time', 'location', 'showUnit', 'sourceWebName', 'sourceWebPromote', 'startDate', 'endDate', 'discountInfo'],
+  props: ['darkMode', 'id', 'title', 'des', 'time', 'location', 'showUnit', 'sourceWebName', 'sourceWebPromote', 'startDate', 'endDate', 'discountInfo', 'imageUrl'],
 }
 </script>

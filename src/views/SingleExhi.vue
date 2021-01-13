@@ -14,10 +14,12 @@
           sourceWebPromote: exhi.sourceWebPromote,
           startDate: exhi.startDate,
           endDate: exhi.endDate,
-          discountInfo: exhi.discountInfo
+          discountInfo: exhi.discountInfo,
+          imageUrl: exhi.imageUrl
         }
       }" :title="exhi.title">
         <h2 class="font-bold text-lg md:text-md mb-3">{{ exhi.title }}</h2>
+        <img v-if="exhi.imageUrl" :src="exhi.imageUrl" :alt="exhi.title的圖片" class="mb-4 rounded opacity-80 hover:opacity-100 transition duration-300 w-60 h-auto" />
         <p class="text-sm">{{ snippet }}</p><br />
         <label class="font-bold float-right" :class="darkMode ? 'hover:text-blue-600': 'hover:text-red-300' " @click="jumpTop">閱讀更多</label>
       </router-link><br /><br />
