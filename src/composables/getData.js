@@ -5,8 +5,8 @@ const getData = () => {
   const error = ref(null)
   const jsonHandler = async (url) => {
     try {
-      const response = await fetch(url);
-      const result = await response.json()
+      const res = await fetch(url)
+      const result = await res.json()
       return originData.value = result
     } catch (err) {
       return error.value = err.message
