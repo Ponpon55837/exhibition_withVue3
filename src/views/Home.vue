@@ -19,6 +19,9 @@
     <div v-if="!matchContent.length && search !== ''" class="text-center">
       沒有搜尋到相應的結果...
     </div>
+    <div v-if="error" class="text-center">
+      {{ error }}
+    </div>
   </div>
 </template>
 
@@ -46,7 +49,7 @@ export default {
       return originData.value.sort((x, y) => x.endDate > y.endDate).filter(item => item.title.includes(search.value) || item.masterUnit.includes(search.value) || item.showUnit.includes(search.value)).splice(0, addArr.value)
     })
 
-    return { search, matchContent, addArr, setAddArr }
+    return { search, matchContent, addArr, setAddArr, error }
   }
 }
 </script>
