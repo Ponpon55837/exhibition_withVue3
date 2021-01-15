@@ -7,7 +7,7 @@ const getData = () => {
 
   const jsonHandler = async (url) => {
     // 使用axios fetch
-    axios.get(url)
+    await axios.get(url)
     .then(res => {
       return originData.value = res.data
     })
