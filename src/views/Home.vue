@@ -7,7 +7,7 @@
 
     <div class="inline-grid grid-cols-1 gap-x-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1" v-if="matchContent">
       <div v-for="exhi in matchContent" :key="exhi.UID">
-        <SingleExhi :exhi="exhi" :darkMode="darkMode" :setShowIndex="setShowIndex"/>
+        <SingleExhi :exhi="exhi" :darkMode="darkMode" />
       </div>
     </div>
     <div v-if="matchContent.length" class="text-center">
@@ -33,7 +33,7 @@ import SingleExhi from './SingleExhi.vue'
 
 export default {
   name: 'Home',
-  props: ['darkMode', 'setShowIndex'],
+  props: ['darkMode'],
   components: { SingleExhi },
   setup() {
     const initialUrl = `https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=6`

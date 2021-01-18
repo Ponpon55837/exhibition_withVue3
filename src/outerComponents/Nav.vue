@@ -7,7 +7,7 @@
     </div>
     <div class="md:text-right sm:text-left">
       <router-link :to="{ name: 'Home', params: {} }" title="回首頁">
-        <button v-if="showIndex" @click="setShowIndex(false)" class="rounded-md p-1 ml-3 mt-5 mb-1 mr-1 w-20 border font-medium" type="button" :class="darkMode ? 'bg-gray-900 border-gray-500 text-gray-300': 'bg-yellow-100 border-blue-900'">首頁</button>
+        <button v-if="$route.path !== '/' " class="rounded-md p-1 ml-3 mt-5 mb-1 mr-1 w-20 border font-medium" type="button" :class="darkMode ? 'bg-gray-900 border-gray-500 text-gray-300': 'bg-yellow-100 border-blue-900'">首頁</button>
       </router-link>
       <button class="rounded-md p-1 ml-2 mt-5 mb-1 mr-5 w-20 border font-medium" type="button" :class="darkMode ? 'bg-gray-900 border-gray-500 text-gray-300': 'bg-yellow-100 border-blue-900'" @click="setDarkMode(!darkMode)">{{ !darkMode ? 'Light' : 'Dark' }}</button>
     </div>
@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  props: ['darkMode', 'setDarkMode', 'showIndex', 'setShowIndex'],
+  props: ['darkMode', 'setDarkMode'],
   setup() {
     const jumpTop = () => window.scrollTo(0, 0)
 

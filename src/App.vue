@@ -1,8 +1,8 @@
 <template>
   <div class="box-border" :class="darkMode ? 'bg-gray-800' : 'bg-yellow-50' ">
-    <Nav :darkMode='darkMode' :setDarkMode='setDarkMode' :showIndex="showIndex" :setShowIndex='setShowIndex' />
+    <Nav :darkMode='darkMode' :setDarkMode='setDarkMode' />
     <!-- 這裡的router-view會抓取Nav當中router-link的連結做為內容輸出 -->
-    <router-view :darkMode='darkMode' :setShowIndex='setShowIndex' />
+    <router-view :darkMode='darkMode' />
     <Footer :darkMode='darkMode' />
   </div>
   <div class="backCircle"></div>
@@ -22,9 +22,8 @@ export default {
   },
   setup() {
     const [darkMode, setDarkMode] = useState(false)
-    const [showIndex, setShowIndex] = useState(false)
 
-    return { darkMode, setDarkMode, showIndex, setShowIndex }
+    return { darkMode, setDarkMode }
   }
 }
 </script>
