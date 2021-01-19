@@ -4,8 +4,7 @@
       <input class="p-1 border rounded-md placeholder-opacity-50 placeholder-gray-500" :class="darkMode ? 'border-blue-800': 'border-yellow-300'" type="text" v-model="search" placeholder="搜尋展覽名稱" />
       <button class="rounded-xl mx-2 p-1" :class="darkMode ? 'bg-gray-300': 'bg-yellow-600'" type="button" @click="search= ''">Clear</button>
     </div>
-
-    <div class="inline-grid grid-cols-1 gap-x-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1" v-if="matchContent">
+    <div class="lg:mx-10 lg:shadow-2xl lg:border lg:rounded-xl inline-grid grid-cols-1 gap-x-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1" v-if="matchContent">
       <div v-for="exhi in matchContent" :key="exhi.UID">
         <SingleExhi :exhi="exhi" :darkMode="darkMode" />
       </div>
