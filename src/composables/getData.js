@@ -1,9 +1,10 @@
 import { ref } from 'vue'
+import { useState } from './state.js'
 import axios from 'axios'
 
 const getData = () => {
   const originData = ref([])
-  const error = ref(null)
+  const [error, setError] = useState(null)
 
   const jsonHandler = async (url) => {
     // 使用axios fetch
@@ -12,7 +13,7 @@ const getData = () => {
       return originData.value = res.data
     })
     .catch(err => {
-      return error.value = err.message
+      return setError(err.message)
     })
 
     // 原生 fetch方式
