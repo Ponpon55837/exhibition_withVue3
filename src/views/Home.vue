@@ -8,9 +8,10 @@
         v-model="search"
         placeholder="搜尋展覽名稱" />
       <button
-        class="rounded-xl mx-2 p-1"
-        :class="darkMode ? 'bg-gray-300': 'bg-yellow-600'"
+        class="rounded-xl mx-2 p-1 transition duration-50 ease-in-out transform scale-90 hover:scale-100"
+        :class="darkMode ? 'bg-gray-300 hover:bg-gray-500': 'bg-yellow-600 hover:bg-yellow-300'"
         type="button"
+        title="clear input"
         @click="search= ''">
         Clear
       </button>
@@ -26,7 +27,7 @@
     <div v-if="matchContent.length" class="text-center">
       <button
         class="rounded-full px-10 py-3 m-5 font-bold transition duration-50 ease-in-out transform scale-90 hover:scale-100"
-        :class="darkMode ? 'bg-gray-300' : 'bg-yellow-500' " @click="setAddArr(addArr+5)">More </button>
+        :class="darkMode ? 'bg-gray-300' : 'bg-yellow-500' " @click="setAddArr(addArr+5)">More</button>
     </div>
     <div v-if="!matchContent.length && search === ''" class="text-center">
       Loading...
