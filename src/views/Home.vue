@@ -26,7 +26,7 @@
     </div>
     <div v-if="matchContent.length" class="text-center">
       <button
-        class="rounded-full px-10 py-3 m-5 font-bold transition duration-50 ease-in-out transform scale-90 hover:scale-100"
+        class="rounded-full px-10 py-3 m-5 font-bold transition duration-700 ease-in-out transform scale-90 hover:scale-100"
         :class="darkMode ? 'bg-gray-300' : 'bg-yellow-500' " @click="setAddArr(addArr+5)">More</button>
     </div>
     <div v-if="!matchContent.length && search === ''" class="text-center">

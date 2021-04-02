@@ -12,7 +12,7 @@
       <button class="rounded-md p-1 ml-2 mt-5 mb-1 mr-5 w-20 border font-medium" type="button" :class="darkMode ? 'bg-gray-900 border-gray-500 text-gray-300 hover:bg-gray-700': 'bg-yellow-100 border-blue-900 hover:bg-yellow-300'" @click="setDarkMode(!darkMode)">{{ !darkMode ? 'Light' : 'Dark' }}</button>
     </div>
   </div>
-  <div class="z-10 cursor-pointer fixed right-5 bottom-5 p-2 rounded-full font-bold opacity-50 hover:opacity-100" :class="darkMode ? 'bg-blue-300': 'bg-yellow-300'" @click="jumpTop">
+  <div class="z-10 cursor-pointer fixed right-5 bottom-5 p-2 rounded-full font-bold opacity-50 hover:opacity-100 transition duration-700 ease-in-out transform scale-90 hover:scale-100" :class="darkMode ? 'bg-blue-300': 'bg-yellow-300'" @click="jumpTop">
     <span>Top</span>
   </div>
 </template>
