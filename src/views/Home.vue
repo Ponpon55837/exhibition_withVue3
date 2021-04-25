@@ -2,13 +2,26 @@
   <div class='container'>
     <div class="m-3">
       <input
-        class="p-1 border rounded-md placeholder-opacity-50 placeholder-gray-500"
+        class="
+          p-1 border 
+          rounded-md 
+          placeholder-opacity-50 
+          placeholder-gray-500"
         :class="darkMode ? 'border-blue-800': 'border-yellow-300'"
         type="text"
         v-model="search"
         placeholder="搜尋展覽名稱" />
       <button
-        class="rounded-xl mx-2 p-1 transition duration-700 ease-in-out transform scale-90 hover:scale-100"
+        class="
+          rounded-xl 
+          mx-2 
+          p-1 
+          transition 
+          duration-700 
+          ease-in-out 
+          transform 
+          scale-90 
+          hover:scale-100"
         :class="darkMode ? 'bg-gray-300 hover:bg-gray-500': 'bg-yellow-600 hover:bg-yellow-300'"
         type="button"
         title="clear input"
@@ -17,22 +30,60 @@
       </button>
     </div>
     <div
-      class="lg:mx-10 lg:shadow-2xl lg:border lg:rounded-xl inline-grid grid-cols-1 gap-x-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1"
+      class="
+        lg:mx-10 
+        lg:shadow-2xl 
+        lg:border 
+        lg:rounded-xl 
+        inline-grid 
+        grid-cols-1 
+        gap-x-4 
+        xl:grid-cols-3 
+        lg:grid-cols-2 
+        md:grid-cols-1 
+        sm:grid-cols-1 
+        xs:grid-cols-1"
       :class="darkMode ? 'border-gray-700': ''"
       v-if="matchContent">
-      <div v-for="exhi in matchContent" :key="exhi.UID">
-        <SingleExhi :exhi="exhi" :darkMode="darkMode" />
+      <div 
+        v-for="exhi in matchContent" 
+        :key="exhi.UID">
+        <SingleExhi 
+          :exhi="exhi" 
+          :darkMode="darkMode" />
       </div>
     </div>
-    <div v-if="matchContent.length" class="text-center">
+    <div 
+      v-if="matchContent.length" 
+      class="text-center">
       <button
-        class="rounded-full px-10 py-3 m-5 font-bold transition duration-700 ease-in-out transform scale-90 hover:scale-100 ring-4 ring-inset"
-        :class="darkMode ? 'bg-gray-300 ring-gray-400' : 'bg-yellow-500 ring-yellow-400' " @click="setAddArr(addArr+5)">More</button>
+        class="
+          rounded-full 
+          px-10 
+          py-3 
+          m-5 
+          font-bold 
+          transition 
+          duration-700 
+          ease-in-out 
+          transform 
+          scale-90 
+          hover:scale-100 
+          ring-4 
+          ring-inset"
+        :class="darkMode ? 'bg-gray-300 ring-gray-400' : 'bg-yellow-500 ring-yellow-400' " 
+        @click="setAddArr(addArr+5)">
+          More 
+        </button>
     </div>
-    <div v-if="!matchContent.length && search === ''" class="text-center">
+    <div 
+      v-if="!matchContent.length && search === ''" 
+      class="text-center">
       Loading...
     </div>
-    <div v-if="!matchContent.length && search !== ''" class="text-center">
+    <div 
+      v-if="!matchContent.length && search !== ''" 
+      class="text-center">
       沒有搜尋到相應的結果...
     </div>
     <div v-if="error" class="text-center">
@@ -42,7 +93,7 @@
 </template>
 
 <script>
-import { ref, watchEffect, computed } from 'vue'
+import { ref, watch, computed } from 'vue'
 import { useState } from '../composables/state.js'
 import getData from '../composables/getData.js'
 import SingleExhi from './SingleExhi.vue'
@@ -57,7 +108,7 @@ export default {
     const search = ref('')
     const [addArr, setAddArr] = useState(10)
 
-    watchEffect(() => {
+    watch(() => {
       jsonHandler(initialUrl)
     })
 

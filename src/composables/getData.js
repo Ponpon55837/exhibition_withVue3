@@ -2,7 +2,7 @@ import { ref } from 'vue'
 import { useState } from './state.js'
 import axios from 'axios'
 
-const getData = () => {
+const getData = (url) => {
   const originData = ref([])
   const [error, setError] = useState(null)
 
