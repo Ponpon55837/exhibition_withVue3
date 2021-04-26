@@ -21,7 +21,7 @@
         group 
         p-5 
         justify-start'
-      :class="darkMode ? 'bg-gray-400': 'bg-yellow-100'">
+      :class="mode ? 'bg-gray-400': 'bg-yellow-100'">
       <router-link :to="{
         name: 'RouterPage',
         params: {
@@ -62,19 +62,19 @@
         <p class="text-sm">{{ snippet }}</p><br />
         <label
           class="font-bold float-right "
-          :class="darkMode ? 'hover:text-blue-600': 'hover:text-red-300' " 
+          :class="mode ? 'hover:text-blue-600': 'hover:text-red-300' " 
           @click="jumpTop">
           閱讀更多
         </label>
       </router-link><br /><br />
       <label
         class="rounded-md p-2 mr-2"
-        :class="darkMode ? 'bg-gray-500 text-purple-300': 'bg-yellow-300' ">
+        :class="mode ? 'bg-gray-500 text-purple-300': 'bg-yellow-300' ">
         #{{ exhi.showInfo[0].onSales === 'Y' ? "售票中" : "暫未售票" }}
       </label>
       <label
         class="rounded-md p-2 mr-2"
-        :class="darkMode ? 'bg-gray-500 text-indigo-300': 'bg-yellow-300' ">
+        :class="mode ? 'bg-gray-500 text-indigo-300': 'bg-yellow-300' ">
         #{{ exhi.masterUnit[0] ? exhi.masterUnit[0] : '未記錄' }}
       </label>
     </div>
@@ -85,7 +85,7 @@
         group 
         p-5 
         justify-start"
-      :class="darkMode ? 'bg-blue-400': 'bg-yellow-200'">
+      :class="mode ? 'bg-blue-400': 'bg-yellow-200'">
       開始時間：{{ exhi.showInfo[0].time }} <br />
       結束時間：{{ exhi.endDate }}
     </div>
@@ -95,6 +95,7 @@
 <script>
 import { computed } from 'vue'
 import RouterPage from './RouterPage.vue'
+import { useStore } from "vuex"
 
 export default {
   name: 'SingleExhi',
@@ -106,9 +107,12 @@ export default {
       return props.exhi.descriptionFilterHtml.substring(0, 100) + '......'
     })
 
+    const store = useStore()
+    const mode = computed(() => store.state.darkMode)
+
     const jumpTop = () => window.scrollTo(0, 0)
 
-    return { snippet, temp, jumpTop }
+    return { snippet, temp, jumpTop, mode }
   }
 }
 </script>
