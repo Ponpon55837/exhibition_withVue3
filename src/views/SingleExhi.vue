@@ -1,26 +1,19 @@
 <template>
   <div class="
-      shadow-md 
-      hover:shadow-lg 
+      shadow-md hover:shadow-lg 
       m-5 
       md:m-3 
       sm:m-0 
-      transition 
-      duration-700 
-      ease-in-out 
-      transform 
-      scale-95 
-      hover:scale-100">
+      transition duration-700 ease-in-out 
+      transform scale-95 hover:scale-100">
     <div
       class='
-        w-100 
+        w-100 p-5
         lg:w-100 
         md:w-full 
         sm:w-full 
         xs:w-full 
-        group 
-        p-5 
-        justify-start'
+        group justify-start'
       :class="mode ? 'bg-gray-400': 'bg-yellow-100'">
       <router-link :to="{
         name: 'RouterPage',
@@ -40,10 +33,8 @@
         }
       }" :title="exhi.title">
         <h2 class="
-          font-bold 
-          text-lg 
-          md:text-md 
-          mb-3">
+          font-bold text-lg mb-3
+          md:text-md ">
           {{ exhi.title }}
         </h2>
         <img
@@ -51,14 +42,9 @@
           :src="exhi.imageUrl"
           :alt="exhi.title的圖片"
           class="
-            mb-4 
-            rounded 
-            opacity-80  
-            transition 
-            duration-300 
-            w-60 
-            h-auto 
-            hover:opacity-100" />
+            mb-4 w-60 h-auto
+            rounded hover:opacity-100
+            opacity-80 transition duration-300 " />
         <p class="text-sm">{{ snippet }}</p><br />
         <label
           class="font-bold float-right "
@@ -80,11 +66,9 @@
     </div>
     <div
       class="
-        w-100 
+        w-100 p-5
         md:w-auto 
-        group 
-        p-5 
-        justify-start"
+        group justify-start"
       :class="mode ? 'bg-blue-400': 'bg-yellow-200'">
       開始時間：{{ exhi.showInfo[0].time }} <br />
       結束時間：{{ exhi.endDate }}
