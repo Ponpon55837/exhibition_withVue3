@@ -15,8 +15,9 @@
 <script>
 import Nav from './outerComponents/Nav.vue'
 import Footer from './outerComponents/Footer.vue'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { useState } from './composables/state.js'
+import store from './store/index.js'
 
 export default {
   name: 'App',
@@ -27,7 +28,16 @@ export default {
   setup() {
     const [darkMode, setDarkMode] = useState(false)
 
-    return { darkMode, setDarkMode }
+    const mode = computed(() => {
+      return store.state.darkMode
+    })
+
+    const setMode = computed(() => {
+      store.commit('loadMode')
+      console.log(store.commit('loadMode'))
+    })
+
+    return { mode, setMode, darkMode, setDarkMode }
   }
 }
 </script>
