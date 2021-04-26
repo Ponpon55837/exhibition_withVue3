@@ -1,13 +1,13 @@
 <template>
   <div 
     class="box-border" 
-    :class="darkMode ? 'bg-gray-800' : 'bg-yellow-100' ">
+    :class="mode ? 'bg-gray-800' : 'bg-yellow-100' ">
     <Nav 
-      :darkMode='darkMode' 
-      :setDarkMode='setDarkMode' />
+      :darkMode='mode' 
+      :setDarkMode='setMode' />
     <!-- 這裡的router-view會抓取Nav當中router-link的連結做為內容輸出 -->
-    <router-view :darkMode='darkMode' />
-    <Footer :darkMode='darkMode' />
+    <router-view :darkMode='mode' />
+    <Footer :darkMode='mode' />
   </div>
   <div class="backCircle"></div>
 </template>
@@ -17,7 +17,7 @@ import Nav from './outerComponents/Nav.vue'
 import Footer from './outerComponents/Footer.vue'
 import { ref, computed } from 'vue'
 import { useState } from './composables/state.js'
-import store from './store/index.js'
+import { useStore } from "vuex"
 
 export default {
   name: 'App',
@@ -28,14 +28,9 @@ export default {
   setup() {
     const [darkMode, setDarkMode] = useState(false)
 
-    const mode = computed(() => {
-      return store.state.darkMode
-    })
-
-    const setMode = computed(() => {
-      store.commit('loadMode')
-      console.log(store.commit('loadMode'))
-    })
+    const store = useStore()
+    const mode = computed(() => store.state.darkMode)
+    const setMode = () => store.commit("loadMode")
 
     return { mode, setMode, darkMode, setDarkMode }
   }
