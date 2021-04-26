@@ -88,7 +88,7 @@
 import { useStore } from "vuex"
 import { computed } from 'vue'
 export default {
-  props: ['darkMode', 'setDarkMode'],
+  props: ['setDarkMode'],
   setup() {
     const jumpTop = () => window.scrollTo(0, 0)
 

@@ -62,7 +62,7 @@ import { useStore } from "vuex"
 
 export default {
   name: 'RouterPage',
-  props: ['darkMode', 'id', 'title', 'des', 'time', 'location', 'showUnit', 'sourceWebName', 'sourceWebPromote', 'startDate', 'endDate', 'discountInfo', 'imageUrl'],
+  props: ['id', 'title', 'des', 'time', 'location', 'showUnit', 'sourceWebName', 'sourceWebPromote', 'startDate', 'endDate', 'discountInfo', 'imageUrl'],
   setup() {
     const store = useStore()
     const mode = computed(() => store.state.darkMode)

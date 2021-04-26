@@ -99,7 +99,7 @@ import { useStore } from "vuex"
 
 export default {
   name: 'SingleExhi',
-  props: ['exhi', 'darkMode'],
+  props: ['exhi'],
   components: { RouterPage },
   setup(props) {
     const temp = props.exhi.showInfo[0]
