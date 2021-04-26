@@ -6,7 +6,7 @@
       grid 
       grid-cols-1 
       md:grid-cols-2" 
-    @scroll='handleScroll' :class="darkMode ? 'bg-gray-900': 'bg-yellow-300' ">
+    @scroll='handleScroll' :class="mode ? 'bg-gray-900': 'bg-yellow-300' ">
     <div class="text-left">
       <router-link 
         :to="{ name: 'Home', params: {} }" 
@@ -17,7 +17,7 @@
             font-bold 
             pt-6 
             pl-3" 
-          :class="darkMode ?'text-gray-300' : 'text-gray-800'">
+          :class="mode ?'text-gray-300' : 'text-gray-800'">
           文化部展覽資訊
         </h1>
       </router-link>
@@ -39,7 +39,7 @@
             border f
             ont-medium" 
           type="button" 
-          :class="darkMode ? 'bg-gray-900 border-gray-500 text-gray-300': 'bg-yellow-100 border-blue-900'">
+          :class="mode ? 'bg-gray-900 border-gray-500 text-gray-300': 'bg-yellow-100 border-blue-900'">
           首頁
         </button>
       </router-link>
@@ -55,7 +55,7 @@
           border 
           font-medium" 
         type="button" 
-        :class="darkMode ? 'bg-gray-900 border-gray-500 text-gray-300 hover:bg-gray-700': 'bg-yellow-100 border-blue-900 hover:bg-yellow-300'" @click="setDarkMode(!darkMode)">{{ !darkMode ? 'Light' : 'Dark' }}</button>
+        :class="mode ? 'bg-gray-900 border-gray-500 text-gray-300 hover:bg-gray-700': 'bg-yellow-100 border-blue-900 hover:bg-yellow-300'" @click="setMode">{{ !mode ? 'Light' : 'Dark' }}</button>
     </div>
   </div>
   <div 
@@ -78,19 +78,25 @@
       transform 
       scale-90 
       hover:scale-100" 
-    :class="darkMode ? 'bg-blue-300 border-blue-400': 'bg-yellow-300 border-yellow-500'" 
+    :class="mode ? 'bg-blue-300 border-blue-400': 'bg-yellow-300 border-yellow-500'" 
     @click="jumpTop">
     <span>Top</span>
   </div>
 </template>
 
 <script>
+import { useStore } from "vuex"
+import { computed } from 'vue'
 export default {
   props: ['darkMode', 'setDarkMode'],
   setup() {
     const jumpTop = () => window.scrollTo(0, 0)
 
-    return { jumpTop }
+    const store = useStore()
+    const mode = computed(() => store.state.darkMode)
+    const setMode = () => store.commit("loadMode")
+
+    return { jumpTop, mode, setMode }
   }
 }
 </script>

@@ -4,7 +4,7 @@
       flex 
       max-w-full 
       justify-center'
-    :class="darkMode ? 'bg-gray-400' : 'bg-yellow-50' ">
+    :class="mode ? 'bg-gray-400' : 'bg-yellow-50' ">
     <div
       class="
         max-w-4xl 
@@ -15,7 +15,7 @@
         ounded-xl 
         my-10 
         p-5"
-      :class="darkMode ? 'border-geay-400': 'border-yellow-200' ">
+      :class="mode ? 'border-geay-400': 'border-yellow-200' ">
       <h2
         class="
           text-center 
@@ -24,7 +24,7 @@
           text-2xl 
           font-bold 
           rounded" 
-        :class="darkMode ? 'bg-gray-600 text-gray-300':'bg-yellow-300' ">
+        :class="mode ? 'bg-gray-600 text-gray-300':'bg-yellow-300' ">
         {{ title }}
       </h2>
       <img 
@@ -57,8 +57,16 @@
 </template>
 
 <script>
+import { computed } from 'vue'
+import { useStore } from "vuex"
+
 export default {
   name: 'RouterPage',
   props: ['darkMode', 'id', 'title', 'des', 'time', 'location', 'showUnit', 'sourceWebName', 'sourceWebPromote', 'startDate', 'endDate', 'discountInfo', 'imageUrl'],
+  setup() {
+    const store = useStore()
+    const mode = computed(() => store.state.darkMode)
+    return { mode }
+  }
 }
 </script>

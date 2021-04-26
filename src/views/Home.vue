@@ -7,7 +7,7 @@
           rounded-md 
           placeholder-opacity-50 
           placeholder-gray-500"
-        :class="darkMode ? 'border-blue-800': 'border-yellow-300'"
+        :class="mode ? 'border-blue-800': 'border-yellow-300'"
         type="text"
         v-model="search"
         placeholder="搜尋展覽名稱" />
@@ -22,7 +22,7 @@
           transform 
           scale-90 
           hover:scale-100"
-        :class="darkMode ? 'bg-gray-300 hover:bg-gray-500': 'bg-yellow-600 hover:bg-yellow-300'"
+        :class="mode ? 'bg-gray-300 hover:bg-gray-500': 'bg-yellow-600 hover:bg-yellow-300'"
         type="button"
         title="clear input"
         @click="search= ''">
@@ -43,14 +43,12 @@
         md:grid-cols-1 
         sm:grid-cols-1 
         xs:grid-cols-1"
-      :class="darkMode ? 'border-gray-700': ''"
+      :class="mode ? 'border-gray-700': ''"
       v-if="matchContent">
       <div 
         v-for="exhi in matchContent" 
         :key="exhi.UID">
-        <SingleExhi 
-          :exhi="exhi" 
-          :darkMode="darkMode" />
+        <SingleExhi :exhi="exhi" />
       </div>
     </div>
     <div 
@@ -71,7 +69,7 @@
           hover:scale-100 
           ring-4 
           ring-inset"
-        :class="darkMode ? 'bg-gray-300 ring-gray-400' : 'bg-yellow-500 ring-yellow-400' " 
+        :class="mode ? 'bg-gray-300 ring-gray-400' : 'bg-yellow-500 ring-yellow-400' " 
         @click="setAddArr(addArr+5)">
           More 
         </button>
@@ -97,10 +95,10 @@ import { ref, watch, computed } from 'vue'
 import { useState } from '../composables/state.js'
 import getData from '../composables/getData.js'
 import SingleExhi from './SingleExhi.vue'
+import { useStore } from "vuex"
 
 export default {
   name: 'Home',
-  props: ['darkMode'],
   components: { SingleExhi },
   setup() {
     const initialUrl = `https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=6`
@@ -116,7 +114,10 @@ export default {
       return originData.value.sort((x, y) => x.endDate > y.endDate).filter(item => item.title.includes(search.value) || item.masterUnit.includes(search.value) || item.showUnit.includes(search.value)).splice(0, addArr.value)
     })
 
-    return { search, matchContent, addArr, setAddArr, error }
+    const store = useStore()
+    const mode = computed(() => store.state.darkMode)
+
+    return { search, matchContent, addArr, setAddArr, error, mode }
   }
 }
 </script>
