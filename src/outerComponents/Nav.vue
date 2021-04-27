@@ -34,7 +34,7 @@
           p-1 ml-2 mt-5 mb-1 mr-5 w-20 " 
         type="button" 
         :class="mode ? 'bg-gray-900 border-gray-500 text-gray-300 hover:bg-gray-700': 'bg-yellow-100 border-blue-900 hover:bg-yellow-300'"
-        @click="setMode">
+        @click="setMode()">
         {{ !mode ? 'Light' : 'Dark' }}
       </button>
     </div>
@@ -54,16 +54,13 @@
 </template>
 
 <script>
-import { useStore } from "vuex"
-import { computed } from 'vue'
+import useMode from '../composables/useMode.js'
+
 export default {
   props: ['setDarkMode'],
   setup() {
     const jumpTop = () => window.scrollTo(0, 0)
-
-    const store = useStore()
-    const mode = computed(() => store.state.darkMode)
-    const setMode = () => store.commit("loadMode")
+    const { mode, setMode } = useMode()
 
     return { jumpTop, mode, setMode }
   }

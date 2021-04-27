@@ -79,7 +79,7 @@
 <script>
 import { computed } from 'vue'
 import RouterPage from './RouterPage.vue'
-import { useStore } from "vuex"
+import useMode from '../composables/useMode.js'
 
 export default {
   name: 'SingleExhi',
@@ -91,10 +91,8 @@ export default {
       return props.exhi.descriptionFilterHtml.substring(0, 100) + '......'
     })
 
-    const store = useStore()
-    const mode = computed(() => store.state.darkMode)
-
     const jumpTop = () => window.scrollTo(0, 0)
+    const { mode } = useMode()
 
     return { snippet, temp, jumpTop, mode }
   }

@@ -15,7 +15,7 @@ import Nav from './outerComponents/Nav.vue'
 import Footer from './outerComponents/Footer.vue'
 import { ref, computed } from 'vue'
 import { useState } from './composables/state.js'
-import { useStore } from "vuex"
+import useMode from './composables/useMode'
 
 export default {
   name: 'App',
@@ -24,8 +24,7 @@ export default {
     Footer
   },
   setup() {
-    const store = useStore()
-    const mode = computed(() => store.state.darkMode)
+    const { mode } = useMode()
 
     return { mode }
   }
