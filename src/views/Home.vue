@@ -76,12 +76,13 @@ import { useState } from '../composables/state.js'
 import getData from '../composables/getData.js'
 import useMode from '../composables/useMode.js'
 import SingleExhi from './SingleExhi.vue'
+import { useStore } from 'vuex'
 
 export default {
   name: 'Home',
   components: { SingleExhi },
   setup() {
-    const initialUrl = `https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=6`
+    const { mode, initialUrl } = useMode()
     const { originData, error, jsonHandler } = getData()
     const search = ref('')
     const [addArr, setAddArr] = useState(10)
@@ -98,8 +99,6 @@ export default {
                 item.showUnit.includes(search.value))
         .splice(0, addArr.value)
     })
-
-    const { mode } = useMode()
 
     return { search, matchContent, addArr, setAddArr, error, mode }
   }
