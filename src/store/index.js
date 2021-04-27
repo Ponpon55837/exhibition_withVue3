@@ -1,5 +1,7 @@
 import { createStore } from "vuex" 
 
+const SET_LOAD_MODE = 'SET_LOAD_MODE'
+
 const store = createStore({
   state () {
     return {
@@ -7,7 +9,7 @@ const store = createStore({
     }
   },
   mutations: { 
-    loadMode (state) { 
+    [SET_LOAD_MODE] (state) { 
       state.darkMode = !state.darkMode
     }
   } 

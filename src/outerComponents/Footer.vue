@@ -7,12 +7,12 @@
 </template>
 
 <script>
-import { useStore } from "vuex"
-import { computed } from 'vue'
+import useMode from '../composables/useMode.js'
+
 export default {
   setup() {
-    const store = useStore()
-    const mode = computed(() => store.state.darkMode)
+    const { mode } = useMode()
+
     return { mode }
   }
 }

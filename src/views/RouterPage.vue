@@ -44,15 +44,14 @@
 </template>
 
 <script>
-import { computed } from 'vue'
-import { useStore } from "vuex"
+import useMode from '../composables/useMode.js'
 
 export default {
   name: 'RouterPage',
   props: ['id', 'title', 'des', 'time', 'location', 'showUnit', 'sourceWebName', 'sourceWebPromote', 'startDate', 'endDate', 'discountInfo', 'imageUrl'],
   setup() {
-    const store = useStore()
-    const mode = computed(() => store.state.darkMode)
+    const { mode } = useMode()
+
     return { mode }
   }
 }

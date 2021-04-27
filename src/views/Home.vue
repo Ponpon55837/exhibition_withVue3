@@ -74,8 +74,8 @@
 import { ref, watch, computed } from 'vue'
 import { useState } from '../composables/state.js'
 import getData from '../composables/getData.js'
+import useMode from '../composables/useMode.js'
 import SingleExhi from './SingleExhi.vue'
-import { useStore } from "vuex"
 
 export default {
   name: 'Home',
@@ -91,11 +91,15 @@ export default {
     })
 
     const matchContent = computed(() => {
-      return originData.value.sort((x, y) => x.endDate > y.endDate).filter(item => item.title.includes(search.value) || item.masterUnit.includes(search.value) || item.showUnit.includes(search.value)).splice(0, addArr.value)
+      return originData.value
+        .sort((x, y) => x.endDate > y.endDate)
+        .filter(item => item.title.includes(search.value) || 
+                item.masterUnit.includes(search.value) || 
+                item.showUnit.includes(search.value))
+        .splice(0, addArr.value)
     })
 
-    const store = useStore()
-    const mode = computed(() => store.state.darkMode)
+    const { mode } = useMode()
 
     return { search, matchContent, addArr, setAddArr, error, mode }
   }
