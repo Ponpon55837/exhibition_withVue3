@@ -6,9 +6,9 @@
       class="
         max-w-4xl ounded-xl my-10 p-5
         shadow-lg hover:shadow-2xl 
-        md:border 
+        md:border md:rounded-md
         xs:border-none"
-      :class="mode ? 'border-geay-400': 'border-yellow-200' ">
+      :class="mode ? 'border-gray-300': 'border-yellow-200' ">
       <h2
         class="
           text-center text-2xl font-bold 

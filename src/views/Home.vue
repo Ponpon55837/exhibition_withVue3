@@ -24,7 +24,8 @@
     <div
       class="
         lg:mx-10 lg:shadow-2xl lg:border lg:rounded-xl 
-        inline-grid grid-cols-1 gap-x-4 
+        inline-grid grid-cols-1 gap-x-4
+        object-contain
         xl:grid-cols-3 
         lg:grid-cols-2 
         md:grid-cols-1 
