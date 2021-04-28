@@ -4,7 +4,7 @@
     :class="mode ? 'bg-gray-800' : 'bg-yellow-100' ">
     <Nav />
     <!-- 這裡的router-view會抓取Nav當中router-link的連結做為內容輸出 -->
-    <router-view />
+    <router-view class="max-w-full justify-center" />
     <Footer />
   </div>
   <div class="backCircle"></div>

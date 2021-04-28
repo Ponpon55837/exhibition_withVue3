@@ -7,6 +7,8 @@ const getData = (url) => {
   const [error, setError] = useState(null)
 
   const jsonHandler = async (url) => {
+    // 設定timeout
+    axios.defaults.timeout = 10000
     // 使用axios fetch
     await axios.get(url)
     .then(res => {

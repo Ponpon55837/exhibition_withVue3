@@ -23,13 +23,11 @@
     </div>
     <div
       class="
-        lg:mx-10 lg:shadow-2xl lg:border lg:rounded-xl 
-        inline-grid grid-cols-1 gap-x-4
+        lg:mx-10 lg:shadow-2xl lg:border lg:rounded-xl
+        inline-grid grid-cols-1
         object-contain
-        xl:grid-cols-3 
-        lg:grid-cols-2 
-        md:grid-cols-1 
-        sm:grid-cols-1 
+        xl:grid-cols-3
+        md:grid-cols-2
         xs:grid-cols-1"
       :class="mode ? 'border-gray-700': ''"
       v-if="matchContent">
@@ -72,12 +70,11 @@
 </template>
 
 <script>
-import { ref, watch, computed } from 'vue'
+import { ref, watchEffect, computed } from 'vue'
 import { useState } from '../composables/state.js'
 import getData from '../composables/getData.js'
 import useMode from '../composables/useMode.js'
 import SingleExhi from './SingleExhi.vue'
-import { useStore } from 'vuex'
 
 export default {
   name: 'Home',
@@ -88,7 +85,7 @@ export default {
     const search = ref('')
     const [addArr, setAddArr] = useState(10)
 
-    watch(() => {
+    watchEffect(() => {
       jsonHandler(initialUrl)
     })
 
