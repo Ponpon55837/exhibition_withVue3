@@ -16,7 +16,8 @@
         :class="mode ? 'bg-gray-600 text-gray-300':'bg-yellow-300' ">
         {{ title }}
       </h2>
-      <img 
+      <img
+        v-if="imageUrl"
         :src="imageUrl" 
         :alt="title + '圖片'" 
         class="rounded-md" />

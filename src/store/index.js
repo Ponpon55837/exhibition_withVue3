@@ -1,8 +1,11 @@
 import { createStore } from "vuex" 
 
 const SET_LOAD_MODE = 'SET_LOAD_MODE'
+<<<<<<< HEAD
 const SET_LOAD_URL = 'SET_LOAD_URL'
 const SET_LOAD_CHECK = 'SET_LOAD_CHECK'
+=======
+>>>>>>> b97cf5628ca444d70f7af5cb721785c654a97967
 
 const store = createStore({
   state () {
