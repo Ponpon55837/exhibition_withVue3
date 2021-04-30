@@ -1,10 +1,13 @@
 import { ref } from 'vue'
 import { useState } from './state.js'
+import useMode from './useMode.js'
 import axios from 'axios'
 
 const getData = (url) => {
   const originData = ref([])
   const [error, setError] = useState(null)
+
+  const { setLoadState } = useMode()
 
   const jsonHandler = async (url) => {
     // 設定timeout
@@ -15,6 +18,7 @@ const getData = (url) => {
       return originData.value = res.data
     })
     .catch(err => {
+      setLoadState()
       return setError(err.message)
     })
 

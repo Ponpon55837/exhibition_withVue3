@@ -54,9 +54,11 @@
         </button>
     </div>
     <div 
-      v-if="!matchContent.length && search === ''" 
-      class="text-center">
-      Loading...
+      v-if="!matchContent.length && search === '' && loadState" 
+      class="flex">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 animate-spin flex-grow my-5" :class="mode ? 'text-blue-800' :  'text-yellow-800'" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+      </svg>
     </div>
     <div 
       v-if="!matchContent.length && search !== ''" 
@@ -80,7 +82,7 @@ export default {
   name: 'Home',
   components: { SingleExhi },
   setup() {
-    const { mode, initialUrl } = useMode()
+    const { mode, initialUrl, loadState } = useMode()
     const { originData, error, jsonHandler } = getData()
     const search = ref('')
     const [addArr, setAddArr] = useState(10)
@@ -91,14 +93,14 @@ export default {
 
     const matchContent = computed(() => {
       return originData.value
-        .sort((x, y) => x.endDate > y.endDate)
         .filter(item => item.title.includes(search.value) || 
-                item.masterUnit.includes(search.value) || 
-                item.showUnit.includes(search.value))
+                        item.masterUnit.includes(search.value) || 
+                        item.showUnit.includes(search.value))
+        .sort((x, y) => x.endDate > y.endDate)
         .splice(0, addArr.value)
     })
 
-    return { search, matchContent, addArr, setAddArr, error, mode }
+    return { search, matchContent, addArr, setAddArr, error, mode, loadState }
   }
 }
 </script>
