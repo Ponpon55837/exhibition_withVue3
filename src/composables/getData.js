@@ -7,7 +7,7 @@ const getData = (url) => {
   const originData = ref([])
   const [error, setError] = useState(null)
 
-  const { setLoadState } = useMode()
+  const { loadState, setLoadState } = useMode()
 
   const jsonHandler = async (url) => {
     // 設定timeout
@@ -20,6 +20,9 @@ const getData = (url) => {
     .catch(err => {
       setLoadState()
       return setError(err.message)
+    })
+    .finally(() => {
+      return loadState
     })
 
     // 原生 fetch方式
