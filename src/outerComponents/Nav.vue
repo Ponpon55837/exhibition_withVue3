@@ -53,16 +53,9 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import useMode from '../composables/useMode.js'
 
-export default {
-  props: ['setDarkMode'],
-  setup() {
-    const jumpTop = () => window.scrollTo(0, 0)
-    const { mode, setMode } = useMode()
-
-    return { jumpTop, mode, setMode }
-  }
-}
+const jumpTop = () => window.scrollTo(0, 0)
+const { mode, setMode } = useMode()
 </script>

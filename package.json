@@ -2,21 +2,22 @@
   "name": "exhibition",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build"
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "vue": "^3.0.5",
-    "vue-router": "^4.0.2",
-    "vuex": "^4.0.0"
+    "@vitejs/plugin-vue": "^2.2.4",
+    "axios": "^0.21.4",
+    "vue": "^3.2.31",
+    "vue-router": "^4.0.13",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
-    "@tailwindcss/postcss7-compat": "^2.0.2",
-    "@vue/compiler-sfc": "^3.0.4",
-    "autoprefixer": "^9.8.6",
-    "postcss": "^7.0.35",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
-    "vite": "^1.0.0-rc.13"
+    "@tailwindcss/postcss7-compat": "^2.2.17",
+    "@vue/compiler-sfc": "^3.2.31",
+    "autoprefixer": "^9.8.8",
+    "postcss": "^7.0.39",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
+    "vite": "^2.8.6"
   }
 }

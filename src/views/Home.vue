@@ -81,36 +81,28 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref, watchEffect, computed } from 'vue'
 import { useState } from '../composables/state.js'
 import getData from '../composables/getData.js'
 import useMode from '../composables/useMode.js'
 import SingleExhi from './SingleExhi.vue'
 
-export default {
-  name: 'Home',
-  components: { SingleExhi },
-  setup() {
-    const { store, mode, initialUrl, loadState } = useMode()
-    const { originData, error, jsonHandler } = getData()
-    const search = ref('')
-    const [addArr, setAddArr] = useState(10)
+const { store, mode, initialUrl, loadState } = useMode()
+const { originData, error, jsonHandler } = getData()
+const search = ref('')
+const [addArr, setAddArr] = useState(10)
 
-    watchEffect(() => {
-      jsonHandler(initialUrl)
-    })
+watchEffect(() => {
+  jsonHandler(initialUrl)
+})
 
-    const matchContent = computed(() => {
-      return originData.value
-        .filter(item => item.title.includes(search.value) || 
-                        item.masterUnit.includes(search.value) || 
-                        item.showUnit.includes(search.value))
-        .sort((x, y) => x.endDate > y.endDate)
-        .splice(0, addArr.value)
-    })
-
-    return { search, matchContent, addArr, setAddArr, error, mode, loadState }
-  }
-}
+const matchContent = computed(() => {
+  return originData.value
+    .filter(item => item.title.includes(search.value) || 
+                    item.masterUnit.includes(search.value) || 
+                    item.showUnit.includes(search.value))
+    .sort((x, y) => x.endDate > y.endDate)
+    .splice(0, addArr.value)
+})
 </script>

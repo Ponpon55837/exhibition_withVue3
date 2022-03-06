@@ -10,23 +10,12 @@
   <div class="backCircle"></div>
 </template>
 
-<script>
+<script setup>
 import Nav from './outerComponents/Nav.vue'
 import Footer from './outerComponents/Footer.vue'
 import { ref, computed } from 'vue'
 import { useState } from './composables/state.js'
 import useMode from './composables/useMode'
 
-export default {
-  name: 'App',
-  components: {
-    Nav,
-    Footer
-  },
-  setup() {
-    const { mode } = useMode()
-
-    return { mode }
-  }
-}
+const { mode } = useMode()
 </script>

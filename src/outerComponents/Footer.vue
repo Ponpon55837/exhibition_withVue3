@@ -6,14 +6,8 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import useMode from '../composables/useMode.js'
 
-export default {
-  setup() {
-    const { mode } = useMode()
-
-    return { mode }
-  }
-}
+const { mode } = useMode()
 </script>

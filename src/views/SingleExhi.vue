@@ -76,25 +76,23 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { computed } from 'vue'
 import RouterPage from './RouterPage.vue'
 import useMode from '../composables/useMode.js'
 
-export default {
-  name: 'SingleExhi',
-  props: ['exhi'],
-  components: { RouterPage },
-  setup(props) {
-    const temp = props.exhi.showInfo[0]
-    const snippet = computed(() => {
-      return props.exhi.descriptionFilterHtml.substring(0, 100) + '......'
-    })
-
-    const jumpTop = () => window.scrollTo(0, 0)
-    const { mode } = useMode()
-
-    return { snippet, temp, jumpTop, mode }
+const props = defineProps({
+  exhi: {
+    type: Object,
+    required: true
   }
-}
+})
+
+const temp = props.exhi.showInfo[0]
+const snippet = computed(() => {
+  return props.exhi.descriptionFilterHtml.substring(0, 100) + '......'
+})
+
+const jumpTop = () => window.scrollTo(0, 0)
+const { mode } = useMode()
 </script>
