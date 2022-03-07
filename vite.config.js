@@ -5,7 +5,7 @@ module.exports = defineConfig({
   plugins: [vue()],
   define: {
     'process.env': {
-      BASE_URL: "http://localhost:3001/"
+      BASE_URL: ""
     },
   },
   runtimeCompiler: true,
